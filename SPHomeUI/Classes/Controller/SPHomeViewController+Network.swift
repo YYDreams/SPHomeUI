@@ -18,7 +18,7 @@ extension SPHomeViewController{
         
         
 //        self.propertys.dataArr = [SPHomeBaseViewModel]()
-        
+        self.propertys.dataArr = []
         guard let path = Bundle.main.path(forResource: "home", ofType: "json") else { return }
             let localData = NSData.init(contentsOfFile: path)! as Data
         do {
@@ -44,6 +44,10 @@ extension SPHomeViewController{
     func bindModuleViewModel(moduleModel: SPPageModuleVOListModel?) -> SPHomeBaseViewModel? {
         var viewModel:SPHomeBaseViewModel? = nil
         switch moduleModel?.moduleSign {
+       
+        case .hotZoneModule:
+        viewModel  = SPHomeHotZoneModuleViewModel()
+            
         case .sliderModule:
             viewModel  = SPHomeSliderModuleViewModel()
         

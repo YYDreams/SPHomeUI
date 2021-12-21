@@ -40,7 +40,6 @@ class SPHomeSubViewController: BaseUIViewController, UICollectionViewDelegate, U
         layout.minimumInteritemSpacing = 0.1
         var collectionView: SPHomeBaseCollection = SPHomeBaseCollection.init(frame: .zero, collectionViewLayout: layout)
         collectionView.scrollsToTop = true
-//        collectionView.isScrollEnabled = false
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.showsVerticalScrollIndicator = false

@@ -1,25 +1,20 @@
 //
-//  SPHomeSliderModuleCell.swift
+//  SPHomeHotZoneModuleCell.swift
 //  SPHomeUI
 //
-//  Created by flowerflower on 2021/12/18.
+//  Created by flowerflower on 2021/12/21.
 //
 
-import SnapKit
-import SDCycleScrollView
+import Foundation
 import XMUtil
 
-class SPHomeSliderModuleCell: SPHomeModuleBaseCell, SDCycleScrollViewDelegate {
+class SPHomeHotZoneModuleCell: SPHomeModuleBaseCell {
     
     // MARK: ------------------------- Propertys
 
-    lazy var cycleScrollView: SDCycleScrollView = {
-        let view  = SDCycleScrollView()
-        view.delegate = self
-        view.backgroundColor = UIColor.clear
-        view.currentPageDotColor = kThemeColor
-        view.pageDotColor  = UIColor.white
-        view.autoScroll = true
+    lazy var bgImgView: UIImageView = {
+        let view  = UIImageView()
+
         return view
     }()
     
@@ -34,8 +29,8 @@ class SPHomeSliderModuleCell: SPHomeModuleBaseCell, SDCycleScrollViewDelegate {
         fatalError("init(coder:) has not been implemented")
     }
     func setupSubView(){
-        contentView.addSubview(cycleScrollView)
-        cycleScrollView.snp.makeConstraints{
+        contentView.addSubview(bgImgView)
+        bgImgView.snp.makeConstraints{
             $0.left.right.equalToSuperview()
             $0.top.equalToSuperview()
             $0.height.equalTo(200)
@@ -52,7 +47,7 @@ class SPHomeSliderModuleCell: SPHomeModuleBaseCell, SDCycleScrollViewDelegate {
                 imageArr.append(imgUrl)
             }
         })
-        self.cycleScrollView.imageURLStringsGroup = imageArr
+        self.bgImgView.backgroundColor = UIColor.red
     }
 
     
@@ -61,10 +56,5 @@ class SPHomeSliderModuleCell: SPHomeModuleBaseCell, SDCycleScrollViewDelegate {
     // MARK: ------------------------- Events
     
     // MARK: ------------------------- Methods
-    
-}
-
-extension SPHomeSliderModuleViewModel: SDCycleScrollViewDelegate{
-    
     
 }

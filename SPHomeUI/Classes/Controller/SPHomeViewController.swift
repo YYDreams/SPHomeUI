@@ -61,13 +61,24 @@ class SPHomeViewController:  BaseUIViewController{
     // MARK: ------------------------- CycLife
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.white
+        self.view.backgroundColor = UIColor.orange
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(rightOnClick))
         setupSubViews()
         setupRefresh()
-
-    }
+        
     
+     
+        
+        
+    }
+    @objc func injected() {
+        #if DEBUG
+          print("I've been injected: \(self)")
+        
+          #endif
+    }
+
+
     func setupRefresh() {
         
         requestData()
